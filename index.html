@@ -1,73 +1,42 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Quiz — Образовательная платформа</title>
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <main class="container" aria-live="polite">
-      <header class="header">
-        <h1 id="quiz-title">Загрузка…</h1>
-        <div class="meta">
-          <div id="progress" aria-label="Прогресс теста">Вопрос — / —</div>
-          <div id="timer" aria-label="Оставшееся время">—:—</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+</head>
+<body>
+    <div class="container">
+        <div id="quiz" role="main">
+            <h1 id="quiz-title"></h1>
+            <div id="timer" aria-live="polite">
+                Осталось: <span id="time-left"></span>
+                <div id="timer-bar"></div>
+            </div>
+            <div id="progress">
+                <span id="progress-text"></span>
+                <div id="progress-bar"></div>
+            </div>
+            <div id="question-text" role="region" aria-live="polite"></div>
+            <div id="options" role="radiogroup"></div>
+            <div class="buttons">
+                <button id="prev-btn" disabled aria-label="Вернуться к предыдущему вопросу">Назад</button>
+                <button id="next-btn" aria-label="Перейти к следующему вопросу">Далее</button>
+                <button id="finish-btn" style="display: none;" aria-label="Завершить тест">Завершить</button>
+            </div>
         </div>
-      </header>
-
-      <section
-        id="question-section"
-        class="card"
-        aria-labelledby="question-text"
-      >
-        <div id="question-text" class="question-text">Загрузка вопроса…</div>
-        <form
-          id="options-form"
-          class="options"
-          role="radiogroup"
-          aria-label="Варианты ответа"
-        ></form>
-      </section>
-
-      <nav class="actions">
-        <button id="btn-prev" class="btn" type="button" aria-label="Назад">
-          Назад
-        </button>
-        <button
-          id="btn-next"
-          class="btn btn-primary"
-          type="button"
-          aria-label="Далее"
-          disabled
-        >
-          Далее
-        </button>
-        <button
-          id="btn-finish"
-          class="btn btn-accent"
-          type="button"
-          aria-label="Завершить"
-          disabled
-        >
-          Завершить
-        </button>
-      </nav>
-
-      <section id="result-section" class="card hidden" aria-live="polite">
-        <h2>Результат</h2>
-        <p id="result-summary">—</p>
-        <div class="actions">
-          <button id="btn-review" class="btn" type="button">
-            Посмотреть ответы
-          </button>
-          <button id="btn-restart" class="btn btn-primary" type="button">
-            Пройти заново
-          </button>
+        <div id="result" style="display: none;" role="dialog">
+            <h1>Результат</h1>
+            <p id="score"></p>
+            <p id="percentage"></p>
+            <p id="status"></p>
+            <button id="review-btn" aria-label="Посмотреть ответы">Посмотреть ответы</button>
+            <button id="restart-btn" aria-label="Пройти заново" style="display: none;">Пройти заново</button>
+            <div id="review" style="display: none;"></div>
         </div>
-      </section>
-    </main>
-
-    <script src="./app.js" type="module"></script>
-  </body>
+    </div>
+    <script src="app.js"></script>
+</body>
 </html>
