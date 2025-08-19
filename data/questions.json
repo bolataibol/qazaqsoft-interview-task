@@ -6,7 +6,7 @@
     {
       "id": "q1",
       "text": "Какой тег HTML используется для самого крупного заголовка?",
-      "options": ["<title>", "<h6>", "<h1>", "<header>"],
+      "options": ["&lt;title&gt;", "&lt;h6&gt;", "&lt;h1&gt;", "&lt;header&gt;"],
       "correctIndex": 2
     },
     {
